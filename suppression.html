@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Supprimer mes données — Timouni</title>
 <meta name="description" content="Comment supprimer votre compte et les données de l’application Timouni (L’Archipel des Souffles / The Whispering Isles).">
-<link rel="stylesheet" href="legal.css">
+<link rel="stylesheet" href="legal.css?v=3">
 </head>
 <body>
 <main>
@@ -30,13 +30,30 @@
 </ol>
 <p>La suppression est immédiate et définitive.</p>
 
-<h2>2. Sans l’application (par e-mail)</h2>
-<p>Écrivez à <a href="mailto:contact@timouni.com?subject=Timouni%20%E2%80%94%20suppression%20de%20mes%20donn%C3%A9es">contact@timouni.com</a> avec pour objet « Suppression de mes données ».</p>
+<h2>2. Sans l’application (ici, immédiat)</h2>
+<p>Si vous avez protégé votre sauvegarde avec une adresse e-mail, vous pouvez supprimer le compte depuis cette page : nous envoyons un code à cette adresse pour vérifier qu’elle est bien à vous.</p>
+<div class="form-suppression">
+  <form class="etape-email">
+    <label for="fr-email">Adresse e-mail du compte</label>
+    <input id="fr-email" type="email" autocomplete="email" required>
+    <button type="submit">Recevoir un code</button>
+  </form>
+  <form class="etape-code" hidden>
+    <label for="fr-code">Code reçu par e-mail (6 chiffres)</label>
+    <input id="fr-code" inputmode="numeric" autocomplete="one-time-code" pattern="[0-9 ]{6,8}" maxlength="8" required>
+    <div class="boutons"><button type="submit">Vérifier le code</button><button type="button" class="secondaire autre-code">Changer d’adresse</button></div>
+  </form>
+  <form class="etape-confirmer" hidden>
+    <label class="case"><input type="checkbox"> Je comprends que la suppression est définitive.</label>
+    <button type="submit" class="danger" disabled>Supprimer le compte</button>
+  </form>
+  <p class="etape-fini" hidden></p>
+  <p class="message" role="status" aria-live="polite"></p>
+</div>
 <ul>
-  <li>Si vous avez protégé votre sauvegarde avec une adresse e-mail, écrivez <strong>depuis cette adresse</strong> : c’est ainsi que nous retrouvons votre compte.</li>
   <li>Si vous n’avez jamais donné d’adresse e-mail, la sauvegarde en ligne n’est liée à aucune information qui permette de vous retrouver : utilisez la suppression depuis l’application (partie 1). Désinstaller l’application efface aussi tout ce qui est enregistré sur l’appareil.</li>
+  <li>Un souci ? Écrivez à <a href="mailto:contact@timouni.com?subject=Timouni%20%E2%80%94%20suppression%20de%20mes%20donn%C3%A9es">contact@timouni.com</a> depuis l’adresse du compte : nous traitons la demande sous 30 jours au plus.</li>
 </ul>
-<p>Nous traitons la demande sous 30 jours au plus et vous confirmons la suppression par e-mail.</p>
 
 <h2>3. Ce qui est supprimé</h2>
 <ul>
@@ -69,13 +86,30 @@
 </ol>
 <p>Deletion is immediate and permanent.</p>
 
-<h2>2. Without the app (by email)</h2>
-<p>Email <a href="mailto:contact@timouni.com?subject=Timouni%20%E2%80%94%20delete%20my%20data">contact@timouni.com</a> with the subject “Delete my data”.</p>
+<h2>2. Without the app (here, immediate)</h2>
+<p>If you protected your backup with an email address, you can delete the account from this page: we send a code to that address to check that it is yours.</p>
+<div class="form-suppression">
+  <form class="etape-email">
+    <label for="en-email">Account email address</label>
+    <input id="en-email" type="email" autocomplete="email" required>
+    <button type="submit">Get a code</button>
+  </form>
+  <form class="etape-code" hidden>
+    <label for="en-code">Code received by email (6 digits)</label>
+    <input id="en-code" inputmode="numeric" autocomplete="one-time-code" pattern="[0-9 ]{6,8}" maxlength="8" required>
+    <div class="boutons"><button type="submit">Check the code</button><button type="button" class="secondaire autre-code">Change address</button></div>
+  </form>
+  <form class="etape-confirmer" hidden>
+    <label class="case"><input type="checkbox"> I understand that deletion is permanent.</label>
+    <button type="submit" class="danger" disabled>Delete the account</button>
+  </form>
+  <p class="etape-fini" hidden></p>
+  <p class="message" role="status" aria-live="polite"></p>
+</div>
 <ul>
-  <li>If you protected your backup with an email address, write <strong>from that address</strong>: this is how we find your account.</li>
   <li>If you never gave an email address, the online backup is not linked to any information that could identify you: please use deletion in the app (part 1). Uninstalling the app also erases everything stored on the device.</li>
+  <li>A problem? Email <a href="mailto:contact@timouni.com?subject=Timouni%20%E2%80%94%20delete%20my%20data">contact@timouni.com</a> from the account’s address: we process requests within 30 days at most.</li>
 </ul>
-<p>We process requests within 30 days at most and confirm the deletion by email.</p>
 
 <h2>3. What is deleted</h2>
 <ul>
@@ -97,5 +131,6 @@
 
 <footer><a href="confidentialite.html">Confidentialité · Privacy</a> · <a href="conditions.html">Conditions · Terms</a> · <a href="assistance.html">Assistance · Support</a></footer>
 </main>
+<script src="suppression.js" defer></script>
 </body>
 </html>
