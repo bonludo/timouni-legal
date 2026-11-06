@@ -23,3 +23,21 @@ th,td{text-align:left;vertical-align:top;padding:8px;border-bottom:1px solid var
 th{color:var(--titre)}
 .tableau{overflow-x:auto}
 footer{margin-top:40px;color:var(--doux);font-size:.9rem}
+.form-suppression{border:2px solid var(--trait);border-radius:16px;padding:16px;margin:12px 0 20px;background:var(--fond)}
+.form-suppression form{display:grid;gap:10px;margin:0}
+.form-suppression label{font-weight:700;color:var(--titre)}
+.form-suppression input[type=email],.form-suppression input[inputmode=numeric]{min-height:48px;padding:0 14px;border-radius:12px;border:2px solid var(--trait);background:var(--carte);color:var(--texte);font:inherit;width:100%}
+.form-suppression input[inputmode=numeric]{font-size:1.4rem;letter-spacing:.4em;max-width:14em}
+.form-suppression .case{display:flex;gap:10px;align-items:flex-start;font-weight:400;color:var(--texte)}
+.form-suppression .case input{width:24px;height:24px;margin-top:2px;flex:none}
+.form-suppression button{min-height:48px;padding:0 20px;border-radius:12px;border:2px solid var(--titre);background:var(--titre);color:var(--fond);font:inherit;font-weight:700;cursor:pointer;justify-self:start}
+.form-suppression button.secondaire{background:transparent;color:var(--titre)}
+.form-suppression button.danger{background:#b3261e;border-color:#b3261e;color:#fff}
+.form-suppression button:disabled{opacity:.5;cursor:not-allowed}
+.form-suppression .boutons{display:flex;flex-wrap:wrap;gap:10px}
+.form-suppression .message{margin:10px 0 0;min-height:1em}
+.form-suppression .message.alerte{font-weight:700;color:#b3261e}
+.form-suppression .etape-fini{font-weight:700;color:var(--titre);margin:0}
+@media (prefers-color-scheme:dark){.form-suppression .message.alerte{color:#ff9b93}}
+.form-suppression [hidden]{display:none!important}
+.form-suppression .case{min-height:44px;align-items:center}
