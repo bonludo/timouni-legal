@@ -11,6 +11,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
       - name: Vérifier le secret
         env:
           MDP: ${{ secrets.OVH_FTP_PASSWORD }}
@@ -21,4 +23,4 @@ jobs:
           MDP: ${{ secrets.OVH_FTP_PASSWORD }}
         run: |
           sudo apt-get update -qq && sudo apt-get install -y -qq lftp
-          lftp -u "timouns,$MDP" -e "set sftp:auto-confirm yes; set net:max-retries 2; mirror --reverse --delete --verbose --exclude-glob .git* --exclude ^\.github/ --exclude ^README ./ www/; bye" sftp://ftp.cluster129.hosting.ovh.net
+          lftp -u "timouns,$MDP" -e "set sftp:auto-confirm yes; set net:max-retries 2; rm -r -f www/.git; rm -r -f www/.github; mirror --reverse --delete --verbose --exclude '^\.git' --exclude '^README' --exclude '^\.nojekyll' ./ www/; bye" sftp://ftp.cluster129.hosting.ovh.net
