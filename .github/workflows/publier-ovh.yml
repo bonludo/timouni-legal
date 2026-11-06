@@ -1,0 +1,24 @@
+# Publie les pages légales sur https://timouni.com (hébergement OVH) à chaque mise à jour de main.
+# Le mot de passe SFTP n'est jamais dans le dépôt : il est dans le secret GitHub OVH_FTP_PASSWORD.
+name: Publier sur timouni.com
+on:
+  push:
+    branches: [main]
+  workflow_dispatch: {}
+concurrency: publier-ovh
+jobs:
+  publier:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Vérifier le secret
+        env:
+          MDP: ${{ secrets.OVH_FTP_PASSWORD }}
+        run: |
+          if [ -z "$MDP" ]; then echo "::error::Secret OVH_FTP_PASSWORD absent : rien n'est publié."; exit 1; fi
+      - name: Envoyer les pages en SFTP vers www/
+        env:
+          MDP: ${{ secrets.OVH_FTP_PASSWORD }}
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq lftp
+          lftp -u "timouns,$MDP" -e "set sftp:auto-confirm yes; set net:max-retries 2; mirror --reverse --delete --verbose --exclude-glob .git* --exclude ^\.github/ --exclude ^README ./ www/; bye" sftp://ftp.cluster129.hosting.ovh.net
