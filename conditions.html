@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <link rel="canonical" href="https://timouni.com/conditions.html">
-<script>/* Anciennes adresses GitHub Pages → timouni.com */if(location.hostname.endsWith('github.io'))location.replace('https://timouni.com/'+location.pathname.replace(/^\/timouni-legal\/?/,'')+location.hash);</script>
+<script src="redirection.js"></script>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Conditions d’utilisation — Timouni</title>
 <meta name="description" content="Conditions d’utilisation et de vente de l’application Timouni (L’Archipel des Souffles / The Whispering Isles).">
@@ -120,8 +120,6 @@ Contact: <a href="mailto:contact@timouni.com">contact@timouni.com</a>.</p>
 
 <footer><a href="confidentialite.html">Confidentialité · Privacy</a> · <a href="assistance.html">Assistance · Support</a> · <a href="suppression.html">Supprimer mes données · Delete my data</a></footer>
 </main>
-<script>
-(function(){const liens=[...document.querySelectorAll('nav.langues a')];function maj(){const h=location.hash||'#fr';for(const a of liens)a.setAttribute('aria-current',String(a.getAttribute('href')===h))}addEventListener('hashchange',maj);if(!location.hash&&/^en\b/i.test(navigator.language||''))location.replace('#en');maj()})();
-</script>
+<script src="langues.js"></script>
 </body>
 </html>
