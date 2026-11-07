@@ -1,0 +1,29 @@
+# Timouni — pages légales sur https://timouni.com (hébergement OVH)
+
+# 1. Toujours en HTTPS, et sans « www »
+RewriteEngine On
+RewriteCond %{HTTPS} !=on [OR]
+RewriteCond %{HTTP_HOST} ^www\. [NC]
+RewriteRule ^(.*)$ https://timouni.com/$1 [R=301,L]
+
+# 2. En-têtes de sécurité
+<IfModule mod_headers.c>
+  # Le navigateur reste en HTTPS pendant 6 mois
+  Header always set Strict-Transport-Security "max-age=15552000"
+  # Aucun autre site ne peut afficher ces pages dans un cadre (clickjacking)
+  Header always set X-Frame-Options "DENY"
+  # Ne pas deviner le type des fichiers
+  Header always set X-Content-Type-Options "nosniff"
+  # Ne pas transmettre l'adresse de la page aux sites ouverts depuis ici
+  Header always set Referrer-Policy "no-referrer"
+  # Pas de caméra, micro, position…
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=(), usb=()"
+  # Seuls nos propres fichiers sont chargés ; seule connexion externe : Supabase (formulaire de suppression)
+  Header always set Content-Security-Policy "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://yqaufmmzdgfthhwewlbx.supabase.co; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none'; upgrade-insecure-requests"
+</IfModule>
+
+# 3. Fichiers cachés jamais servis (.git, .github…)
+RedirectMatch 404 /\.(git|github)(/|$)
+
+# 4. Pas de liste des fichiers
+Options -Indexes
