@@ -24,7 +24,7 @@ jobs:
           MDP: ${{ secrets.OVH_FTP_PASSWORD }}
         run: |
           sudo apt-get update -qq && sudo apt-get install -y -qq lftp
-          lftp -u "timouns,$MDP" -e "set cmd:fail-exit yes; set sftp:auto-confirm yes; set net:max-retries 2; mkdir -p www/assets; mirror --reverse --verbose assets/ www/assets/; mput -O www/ decouverte.css decouverte.js defilement.css defilement.js vie-decouverte.css vie-decouverte.js; put -O www/ decouvrir.html; bye" sftp://ftp.cluster129.hosting.ovh.net
+          lftp -u "timouns,$MDP" -e "set cmd:fail-exit yes; set sftp:auto-confirm yes; set net:max-retries 2; mirror --reverse --verbose assets/ www/assets/; mput -O www/ decouverte.css decouverte.js defilement.css defilement.js vie-decouverte.css vie-decouverte.js; put -O www/ decouvrir.html; bye" sftp://ftp.cluster129.hosting.ovh.net
       - name: Envoyer les pages en SFTP vers www/
         if: ${{ !startsWith(github.event.head_commit.message, 'Publier la presentation Timouni') }}
         env:
