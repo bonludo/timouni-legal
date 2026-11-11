@@ -44,7 +44,11 @@
     revision: 0
   })).filter(chapter => chapter.pin && chapter.visual && chapter.list);
   async function activateChapter(chapter, index) {
-    if (chapter.active === index || chapter.pending === index) return;
+    if (chapter.active === index) {
+      if (chapter.pending !== -1 && chapter.pending !== index) { chapter.revision++; chapter.pending = -1; }
+      return;
+    }
+    if (chapter.pending === index) return;
     chapter.pending = index;
     const revision = ++chapter.revision;
     const panels = [...chapter.visual.querySelectorAll('[data-scene]')];
