@@ -50,7 +50,6 @@
   .promises li,.feature-line{position:relative!important;inset:auto!important;height:auto!important;min-height:0!important;opacity:1!important;visibility:visible!important;transform:none!important;pointer-events:auto!important;transition:none!important;padding-top:18px!important;padding-bottom:20px!important}
   .promises li.is-active,.feature-line.is-active{background:linear-gradient(90deg,#f2c36b2e,#f2c36b00 75%)}
   .promises li:before{top:21px!important}
-  .zoom-journey{height:120svh}
 }
 
 /* ===== Correctifs telephone (verifies sur appareil) ===== */
@@ -87,17 +86,14 @@
 }
 .cta.cta-secondary>span{font-size:inherit!important}
 
-/* ===== Hero et zoom sur telephone : pas de parallaxe, image nette ===== */
+/* ===== Hero sur telephone : parallaxe conservee, image nette, plus d'ecart au bas du hero ===== */
 @media(max-width:640px){
   .hero{height:790px!important;max-height:none!important}
-  .horizon{inset:0!important;transform:none!important;background-size:auto 64%!important;background-position:62% 100%!important;-webkit-mask-image:linear-gradient(transparent 35%,#000 53%);mask-image:linear-gradient(transparent 35%,#000 53%);will-change:auto!important}
-  .explorers{--foreground-shift:0px!important}
+  .horizon{inset:0!important;background-size:auto 64%!important;background-position:62% 100%!important;-webkit-mask-image:linear-gradient(transparent 35%,#000 53%);mask-image:linear-gradient(transparent 35%,#000 53%)}
+  /* le premier plan descend assez bas pour que son decalage (jusqu'a 60 px) ne laisse jamais voir le fond */
+  .explorers{bottom:-78px!important}
   .hero .soon{text-wrap:balance}
-  /* Section « Chaque histoire ouvre une porte » : 4 images alignees, titre dessous (plus de zoom au defilement) */
-  .zoom-journey{height:auto!important;background:#123e46}
-  .zoom-journey-inner{position:relative!important;height:auto!important;display:grid!important;grid-template-columns:1fr 1fr!important;grid-template-rows:none!important;gap:4px!important;overflow:visible}
-  .zoom-journey-inner img{height:auto!important;aspect-ratio:4/5;transform:none!important;filter:brightness(.88)!important}
-  .zoom-journey-inner .zoom-final,.zoom-journey-inner:after{display:none!important}
-  .zoom-journey p{position:static!important;opacity:1!important;padding:30px 20px 36px!important;font-size:clamp(28px,8vw,40px)!important;line-height:1.15}
-  .zoom-journey + .living.scroll-chapter{margin-top:0!important}
 }
+/* Section zoom : chaque image est decoupee dans sa case, elles ne debordent plus sur les voisines */
+.zoom-journey-inner .zoom-tile{position:relative;overflow:hidden;min-width:0;min-height:0}
+.zoom-journey-inner .zoom-tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}

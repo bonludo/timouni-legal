@@ -151,7 +151,6 @@
   let scrollQueued = false;
   function parallax() {
     if (!hero || reduceMotion.matches || root.classList.contains('motion-paused')) return;
-    if (compact.matches) { const h = hero.querySelector('.horizon'); if (h) h.style.transform = ''; hero.querySelector('.explorers')?.style.setProperty('--foreground-shift', '0px'); return; }
     const progress = Math.max(0, Math.min(1, scrollY / Math.max(hero.offsetHeight, 1)));
     const horizon = hero.querySelector('.horizon');
     if (horizon) horizon.style.transform = `translate3d(0, ${Math.min(scrollY, 1000) * .12}px, 0)`;
