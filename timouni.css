@@ -443,7 +443,41 @@ header nav a{font-size:14px;font-weight:500}
   .living-stage{position:sticky!important;top:0!important;z-index:3;width:100%!important;height:38svh!important;min-height:220px;max-height:340px;aspect-ratio:auto!important;border-radius:0 0 34px 4px!important;margin:0 0 8px!important}
   .promises,.feature-list{position:relative!important;height:auto!important;margin-top:18px}
   .promises li,.feature-line{position:relative!important;inset:auto!important;height:auto!important;min-height:0!important;opacity:1!important;visibility:visible!important;transform:none!important;pointer-events:auto!important;transition:none!important;padding-top:18px!important;padding-bottom:20px!important}
-  .promises li.is-active,.feature-line.is-active{box-shadow:inset 3px 0 0 #f2c36b}
+  .promises li.is-active,.feature-line.is-active{background:linear-gradient(90deg,#f2c36b2e,#f2c36b00 75%)}
   .promises li:before{top:21px!important}
   .zoom-journey{height:120svh}
 }
+
+/* ===== Correctifs telephone (verifies sur appareil) ===== */
+/* Couvertures : le titre ne chevauche plus le nom de la collection ni l'embleme (toutes largeurs) */
+.cover.lou .cover-title,.cover.salome .cover-title{top:15%;font-size:9.4cqw;text-wrap:balance}
+.cover.abel .cover-title,.cover.vivi .cover-title{top:20%;font-size:10.2cqw;text-wrap:balance}
+.cover.vivi .cover-emblem{filter:drop-shadow(0 0 6px #fffbe0e0) drop-shadow(0 0 2px #fffbe0)}
+@media(max-width:640px){
+  /* En-tete compact : le bouton pause devient une icone sur la premiere ligne */
+  .motion-toggle{width:44px;height:44px;min-height:44px;max-width:none;padding:0!important;border-radius:50%;font-size:0!important;position:relative;flex:0 0 auto}
+  .motion-toggle span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+  .motion-toggle::before{content:'\23F8';font-size:17px;line-height:1;position:absolute;inset:0;display:grid;place-items:center}
+  .motion-toggle[aria-pressed=true]::before{content:'\25B6'}
+  header{gap:6px 10px}.languages{margin-left:auto}
+  /* Titre du heros : plus de guillemet orphelin */
+  .hero h1{font-size:clamp(33px,9.2vw,50px)!important;text-wrap:balance}
+  /* Experience : titre d'abord, puis image collante, puis les etapes */
+  .experience-pin{display:flex!important;flex-direction:column!important}
+  .experience .editorial-copy{display:contents!important}
+  .experience .editorial-copy>.eyebrow{order:1;padding:34px 20px 0!important;margin:0}
+  .experience .editorial-copy>h2{order:2;padding:0 20px;margin:8px 0 10px!important}
+  .experience .editorial-copy>p:not(.eyebrow){order:3;padding:0 20px 18px;margin:0}
+  .experience .scroll-visual{order:4;background:#103f47!important;overflow:hidden;height:40svh!important;max-height:360px!important;min-height:200px}
+  .experience .promises{order:5;padding:6px 20px 44px!important;margin:0!important}
+  /* Les scenes remplissent le cadre (plus d'images ecrasees en bandeau) */
+  .map-scene,.dialogue-scene{background-image:none!important;background:#103f47!important}
+  .map-scene img,.experience .editorial-image .dialogue-scene img{position:static!important;inset:auto!important;transform:none!important;width:100%!important;height:100%!important;border-radius:0!important;box-shadow:none!important;object-fit:cover!important;filter:none!important}
+  .map-scene img{object-fit:contain!important;background:#f9edcf!important;padding:0!important}
+  .scene-panel img{filter:saturate(.95) brightness(.9)}
+  .experience .scene-panel .image-caption{left:12px!important;bottom:12px!important}
+  /* Atouts : cadre opaque et assez haut ; les legendes repetent la liste, on les masque */
+  .living-stage{height:46svh!important;max-height:400px!important;min-height:230px;background:#103f47!important;overflow:hidden}
+  .feature-caption,.voice-card{display:none!important}
+}
+.cta.cta-secondary>span{font-size:inherit!important}

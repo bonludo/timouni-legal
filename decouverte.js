@@ -10,7 +10,7 @@
   document.querySelectorAll('[data-language]').forEach(button => button.addEventListener('click', () => {
     language = button.dataset.language;
     document.documentElement.lang = language;
-    document.title = language === 'fr' ? 'Timouni — L’Archipel des Souffles' : 'Timouni — The Whispering Isles';
+    document.title = language === 'fr' ? 'Timouni — histoires illustrées pour enfants de 4 à 8 ans' : 'Timouni — illustrated stories for children aged 4 to 8';
     document.querySelectorAll('[data-language]').forEach(el => el.setAttribute('aria-pressed', String(el === button)));
     translate();
   }));
