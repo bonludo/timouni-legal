@@ -407,7 +407,7 @@ header nav a{font-size:14px;font-weight:500}
   .languages button{min-width:44px}
 }
 @media(max-width:640px){
-  .horizon{background-image:url('assets/decouverte-v02/archipel-panoramique-editorial-mobile.webp')!important}
+  .horizon{background-image:url('assets/decouverte-v02/archipel-panoramique-mobile-v2.webp')!important}
   /* Lisibilité */
   .languages button,.scene-counter,.feature-number{font-size:13px!important}
   .brand{min-height:44px;display:inline-flex;align-items:center}
@@ -481,3 +481,18 @@ header nav a{font-size:14px;font-weight:500}
   .feature-caption,.voice-card{display:none!important}
 }
 .cta.cta-secondary>span{font-size:inherit!important}
+
+/* ===== Hero et zoom sur telephone : pas de parallaxe, image nette ===== */
+@media(max-width:640px){
+  .hero{height:790px!important;max-height:none!important}
+  .horizon{inset:0!important;transform:none!important;background-size:auto 64%!important;background-position:62% 100%!important;-webkit-mask-image:linear-gradient(transparent 35%,#000 53%);mask-image:linear-gradient(transparent 35%,#000 53%);will-change:auto!important}
+  .explorers{--foreground-shift:0px!important}
+  .hero .soon{text-wrap:balance}
+  /* Section « Chaque histoire ouvre une porte » : 4 images alignees, titre dessous (plus de zoom au defilement) */
+  .zoom-journey{height:auto!important;background:#123e46}
+  .zoom-journey-inner{position:relative!important;height:auto!important;display:grid!important;grid-template-columns:1fr 1fr!important;grid-template-rows:none!important;gap:4px!important;overflow:visible}
+  .zoom-journey-inner img{height:auto!important;aspect-ratio:4/5;transform:none!important;filter:brightness(.88)!important}
+  .zoom-journey-inner .zoom-final,.zoom-journey-inner:after{display:none!important}
+  .zoom-journey p{position:static!important;opacity:1!important;padding:30px 20px 36px!important;font-size:clamp(28px,8vw,40px)!important;line-height:1.15}
+  .zoom-journey + .living.scroll-chapter{margin-top:0!important}
+}
