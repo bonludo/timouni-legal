@@ -44,7 +44,8 @@
     revision: 0
   })).filter(chapter => chapter.pin && chapter.visual && chapter.list);
   // Petit écran : pas d'épinglage. L'image reste collée en haut et suit l'étape qui passe sous elle.
-  const compact = matchMedia('(max-width: 640px)');
+  const compact = matchMedia('(max-width: 640px), (orientation: landscape) and (max-height: 520px)');
+  const stackedMq = matchMedia('(max-width: 640px) and (orientation: portrait)');
   async function activateChapter(chapter, index) {
     if (chapter.active === index) {
       if (chapter.pending !== -1 && chapter.pending !== index) { chapter.revision++; chapter.pending = -1; }
@@ -98,7 +99,7 @@
       const count = Math.min(chapter.visual.querySelectorAll('[data-scene]').length, steps.length);
       if (!count) return;
       if (compact.matches) {
-        const line = chapter.visual.getBoundingClientRect().bottom + 48;
+        const line = stackedMq.matches ? chapter.visual.getBoundingClientRect().bottom + 48 : innerHeight * 0.55;
         let found = 0;
         [...steps].slice(0, count).forEach((step, i) => { if (step.getBoundingClientRect().top <= line) found = i; });
         activateChapter(chapter, found);
