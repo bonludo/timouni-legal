@@ -1,0 +1,19 @@
+/* Typographie alignée sur l'application : Fraunces « douce » pour les titres (comme le logo), Nunito pour le texte, Fredoka pour les boutons et petits libellés. */
+body{font-family:Nunito,system-ui,sans-serif}
+h1,h2,h3,.book-hook,.age-number,.zoom-journey p,.brand>span,.favorite-cover-title strong,.listening-cover-title strong{font-family:Fraunces,Georgia,serif;font-optical-sizing:none;font-variation-settings:"opsz" 18,"SOFT" 100,"WONK" 0}
+.hero h1{letter-spacing:-.012em;line-height:1.08}
+@media(min-width:641px){.hero h1{font-size:clamp(40px,4.9vw,70px);max-width:980px}}
+h2{letter-spacing:-.008em}
+.cover-title{font-variation-settings:"opsz" 18,"SOFT" 100,"WONK" 0;letter-spacing:-.01em}
+.cta,.filters button,.eyebrow,.book-meta,.soon,.motion-toggle,header nav a,.languages button,.book-audio,.speak-word,.speak-definition,.word-demo,.questions summary,.feature-number,.scene-counter,.image-caption,.skip{font-family:Fredoka,Nunito,system-ui,sans-serif}
+.cta,.filters button,.motion-toggle,.languages button{font-weight:600;letter-spacing:.01em}
+.eyebrow{font-size:12px;font-weight:600;letter-spacing:.12em}
+.hero .eyebrow{font-size:12px}
+.book-meta{font-size:11px;font-weight:500}
+.cta{font-size:15px}
+.filters button{font-size:13px}
+header nav a{font-size:14px;font-weight:500}
+.motion-toggle{font-size:12px}
+.hero .soon{display:table!important;font-family:Fredoka,Nunito,sans-serif;font-weight:500;padding:8px 16px!important;border-radius:99px!important;background:#fff9e8f2!important;border:1px solid #123e4630!important;box-shadow:0 2px 10px #123e4618;color:#123e46}
+@media(min-width:641px){.hero .soon{font-size:13px}}
+.hero-intro{font-weight:600;text-shadow:0 1px 10px #fff3d0,0 0 3px #fff3d0cc}
