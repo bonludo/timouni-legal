@@ -1,0 +1,54 @@
+/* Mobile : lisibilité (≥ 12 px), zones tactiles (≥ 44 px) et défilement normal (plus de chapitres épinglés). */
+.cta.cta-secondary{background:#fff9e8e8;color:var(--ink);border:2px solid var(--ink);box-shadow:none;margin-left:10px}
+.cta.cta-secondary:hover{background:#fff9e8;transform:translateY(-3px)}
+.hero-actions{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 10px;align-items:center}
+.hero-actions .cta{margin-top:24px;margin-left:0}
+.closing .cta.cta-secondary{margin-left:10px;background:#fff9e8}
+.closing-actions{display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
+.closing-actions .cta{margin-top:17px;margin-left:0}
+@media(max-width:900px){
+  header nav a,.languages button,.motion-toggle,.filters button,.questions summary,footer a,.book-audio,.speak-word,.speak-definition,.word-demo{min-height:44px}
+  header nav a,footer a{display:inline-flex;align-items:center}
+  .languages button{min-width:44px}
+}
+@media(max-width:640px){
+  .horizon{background-image:url('assets/decouverte-v02/archipel-panoramique-editorial-mobile.webp')!important}
+  /* Lisibilité */
+  .languages button,.scene-counter,.feature-number{font-size:13px!important}
+  .brand{min-height:44px;display:inline-flex;align-items:center}
+  .eyebrow,.hero .eyebrow,.soon,.motion-toggle,.book-meta,.collection-note,.living>.collection-note,.experience .editorial-copy .eyebrow,.image-caption,.word-hint,.speech-status,.book-audio-status{font-size:12px!important;line-height:1.5}
+  header nav{font-size:13px;gap:4px}
+  .motion-toggle{max-width:none;font-size:12px!important;padding:8px 12px}
+  .filters button{font-size:13px;padding:8px 16px}
+  .book-meta{letter-spacing:.04em}
+  .book-hook{font-size:16px}
+  .questions summary{font-size:15px}
+  .questions details p,.age-panels p{font-size:15px}
+  footer{font-size:13px}
+  .cta{font-size:14px;min-height:48px}
+  .cta.cta-secondary,.hero-actions .cta,.closing-actions .cta{margin-left:0;width:100%;max-width:340px}
+  .hero-actions .cta{margin-top:0}.hero-actions{flex-direction:column;margin-top:18px}.closing-actions{flex-direction:column;align-items:center}.closing-actions .cta{margin-top:0}.closing-actions{margin-top:17px}
+  .hero{height:930px!important;max-height:980px!important}
+  header{padding-bottom:6px}header nav{padding-top:2px}
+  .promises h3,.feature-line h3{font-size:16px!important}
+  .promises p,.feature-line p,.voice-card p,.feature-caption p,.word-panel #word-definition,.editorial-copy>p:not(.eyebrow),.experience .editorial-copy>p:not(.eyebrow),.living-heading>p:last-child{font-size:14px!important;line-height:1.6!important}
+  .voice-card h3,.feature-caption h3{font-size:17px!important}
+  .age-panels h3{font-size:16px}
+
+  /* Défilement normal : plus de chapitres épinglés, l'image reste collée en haut pendant la lecture */
+  .experience.scroll-chapter,.living.scroll-chapter{min-height:0!important;height:auto!important}
+  .experience-pin,.living-pin{position:relative!important;top:auto!important;height:auto!important;min-height:0!important;overflow:visible!important}
+  .experience-pin{display:block!important}
+  .experience .editorial-image{position:sticky!important;inset:auto!important;top:0!important;z-index:3;width:100%!important;height:38svh!important;min-height:220px;max-height:340px!important;aspect-ratio:auto!important;border-radius:0 0 34px 4px!important}
+  .experience .editorial-image:after{background:linear-gradient(180deg,#103f4700 60%,#103f4766 100%)!important}
+  .experience .editorial-copy{min-height:0!important;width:100%!important;margin:0!important;justify-content:flex-start!important;padding:26px 20px 44px!important}
+  .living-pin{display:block!important;padding:0 18px 36px!important}
+  .living-heading{padding-top:44px;margin-bottom:18px}
+  .living-layout{display:block!important}
+  .living-stage{position:sticky!important;top:0!important;z-index:3;width:100%!important;height:38svh!important;min-height:220px;max-height:340px;aspect-ratio:auto!important;border-radius:0 0 34px 4px!important;margin:0 0 8px!important}
+  .promises,.feature-list{position:relative!important;height:auto!important;margin-top:18px}
+  .promises li,.feature-line{position:relative!important;inset:auto!important;height:auto!important;min-height:0!important;opacity:1!important;visibility:visible!important;transform:none!important;pointer-events:auto!important;transition:none!important;padding-top:18px!important;padding-bottom:20px!important}
+  .promises li.is-active,.feature-line.is-active{box-shadow:inset 3px 0 0 #f2c36b}
+  .promises li:before{top:21px!important}
+  .zoom-journey{height:120svh}
+}

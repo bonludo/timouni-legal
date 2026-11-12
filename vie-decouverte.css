@@ -116,7 +116,7 @@ main>.section:not(.scroll-chapter){padding-block:clamp(48px,4.5vw,72px)}
 .zoom-journey-inner .zoom-final{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:var(--zoom-fade,0);transform:none!important;filter:brightness(.72);z-index:2}
 .zoom-journey p{opacity:calc(1 - var(--zoom-fade,0));z-index:3}
 .living-pin{isolation:isolate;overflow:hidden;background:#f4c66c}
-.living-backdrop{position:absolute;inset:0;z-index:-1;background:linear-gradient(#f4c66ce8,#f4c66cef),url('assets/decouverte-v02/salome-aventure-v01.png') center/cover}
+.living-backdrop{position:absolute;inset:0;z-index:-1;background:linear-gradient(#f4c66ce8,#f4c66cef),url('assets/decouverte-v02/salome-aventure-v01.webp') center/cover}
 .living-backdrop i{position:absolute;inset:0;background-position:center;background-size:cover;opacity:0;transition:opacity .65s ease;filter:opacity(.13)}
 .living-backdrop i.is-active{opacity:1}
 .living-pin>*:not(.living-backdrop){position:relative}
@@ -134,7 +134,7 @@ main>.section:not(.scroll-chapter){padding-block:clamp(48px,4.5vw,72px)}
 .zoom-journey + .living.scroll-chapter{margin-top:-100svh;z-index:2}
 .play-panel>img{object-fit:cover;object-position:center;padding:0}
 @media(prefers-reduced-motion:reduce){.zoom-journey + .living.scroll-chapter{margin-top:0}}
-.living-backdrop{background:#f4c66c url('assets/decouverte-v02/salome-aventure-v01.png') center/cover}
+.living-backdrop{background:#f4c66c url('assets/decouverte-v02/salome-aventure-v01.webp') center/cover}
 .living-backdrop i{filter:none}
 .living-backdrop:after{content:'';position:absolute;inset:0;background:#f4c66cd6}
 /* La section apparaît sur l’image finale, une fois le zoom arrivé à son terme. */
@@ -176,9 +176,9 @@ main>.section:not(.scroll-chapter){padding-block:clamp(48px,4.5vw,72px)}
 @media(prefers-reduced-motion:reduce){.character-scene.is-active .character-trio figure{animation:none}}
 /* Décors restaurés derrière les illustrations du chapitre. */
 .experience .scene-panel{background-color:#123e46;background-size:cover;background-position:center}
-.experience .character-scene{background-image:linear-gradient(#103f47b8,#103f47d9),url('assets/decouverte-v02/krik-scene-validee-v06.png')}
-.experience .map-scene{background-image:linear-gradient(#103f47b8,#103f47d9),url('assets/decouverte-v02/silo-scene-publiee.png')}
-.experience .dialogue-scene{background-image:linear-gradient(#103f47b8,#103f47d9),url('assets/decouverte-v02/abel-scene.png')}
+.experience .character-scene{background-image:linear-gradient(#103f47b8,#103f47d9),url('assets/decouverte-v02/krik-scene-validee-v06.webp')}
+.experience .map-scene{background-image:linear-gradient(#103f47b8,#103f47d9),url('assets/decouverte-v02/silo-scene-publiee.webp')}
+.experience .dialogue-scene{background-image:linear-gradient(#103f47b8,#103f47d9),url('assets/decouverte-v02/abel-scene.webp')}
 .experience .editorial-image .map-scene img{object-fit:cover;padding:0;background:transparent}
 .experience .scene-panel .character-trio{left:12%;right:12%;gap:clamp(4px,1.8vw,25px);height:48%;top:26%}
 .experience .scene-panel .character-trio figure{width:min(31%,260px)}

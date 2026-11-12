@@ -43,6 +43,8 @@
     pending: -1,
     revision: 0
   })).filter(chapter => chapter.pin && chapter.visual && chapter.list);
+  // Petit écran : pas d'épinglage. L'image reste collée en haut et suit l'étape qui passe sous elle.
+  const compact = matchMedia('(max-width: 640px)');
   async function activateChapter(chapter, index) {
     if (chapter.active === index) {
       if (chapter.pending !== -1 && chapter.pending !== index) { chapter.revision++; chapter.pending = -1; }
@@ -75,11 +77,11 @@
     steps.forEach((step, i) => {
       const current = i === index;
       step.classList.toggle('is-active', current);
-      step.setAttribute('aria-hidden', String(!current));
+      if (compact.matches) step.removeAttribute('aria-hidden'); else step.setAttribute('aria-hidden', String(!current));
     });
     if (chapter.section.id === 'atouts') {
       const layers = chapter.section.querySelectorAll('.living-backdrop i');
-      const source = index === 0 ? 'assets/decouverte-v02/salome-aventure-v01.png' : (panels[index]?.dataset.backdrop || panels[index]?.querySelector('img')?.getAttribute('src'));
+      const source = index === 0 ? 'assets/decouverte-v02/salome-aventure-v01.webp' : (panels[index]?.dataset.backdrop || panels[index]?.querySelector('img')?.getAttribute('src'));
       if (layers.length && source) {
         const next = layers[index % 2];
         next.style.backgroundImage = `url("${source}")`;
@@ -95,6 +97,13 @@
       const steps = chapter.list.querySelectorAll(':scope > li, :scope > .feature-line');
       const count = Math.min(chapter.visual.querySelectorAll('[data-scene]').length, steps.length);
       if (!count) return;
+      if (compact.matches) {
+        const line = chapter.visual.getBoundingClientRect().bottom + 48;
+        let found = 0;
+        [...steps].slice(0, count).forEach((step, i) => { if (step.getBoundingClientRect().top <= line) found = i; });
+        activateChapter(chapter, found);
+        return;
+      }
       const rect = chapter.section.getBoundingClientRect();
       const scrollRange = Math.max(1, chapter.section.offsetHeight - chapter.pin.offsetHeight);
       const progress = Math.max(0, Math.min(0.999999, -rect.top / scrollRange));

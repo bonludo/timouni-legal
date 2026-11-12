@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">Timouni — Ti Lumière lit un livre</title>
+  <desc id="desc">Ti Lumière, petite flamme dorée souriante, se penche vers un livre ouvert.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff5cf"/><stop offset="1" stop-color="#ffe39b"/></linearGradient>
+    <linearGradient id="flame" x1=".2" y1="0" x2=".8" y2="1"><stop stop-color="#ffe986"/><stop offset=".55" stop-color="#ffc247"/><stop offset="1" stop-color="#f39b31"/></linearGradient>
+    <linearGradient id="pages" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#fffef7"/><stop offset="1" stop-color="#f4e8c8"/></linearGradient>
+    <filter id="shadow" x="-.2" y="-.2" width="1.4" height="1.5"><feDropShadow dx="0" dy="10" stdDeviation="10" flood-color="#a76a28" flood-opacity=".18"/></filter>
+  </defs>
+  <rect x="16" y="16" width="480" height="480" rx="132" fill="url(#bg)"/>
+  <circle cx="256" cy="252" r="174" fill="#fff9e8" opacity=".72"/>
+  <g filter="url(#shadow)">
+    <path d="M255 76c-4 44-51 61-73 101-23 42-14 95 16 124 15 15 35 24 58 24 49 0 88-37 88-85 0-49-43-78-53-126-18 21-31 38-36 61-14-24-8-63 0-99Z" fill="url(#flame)" stroke="#e99832" stroke-width="7" stroke-linejoin="round"/>
+    <path d="M255 105c-7 28-31 47-45 73-17 32-12 69 10 88 9 8 21 13 36 13 31 0 56-24 56-55 0-31-28-51-36-83-9 11-15 22-18 38-8-20-7-49-3-74Z" fill="#fff2b7" opacity=".76"/>
+  </g>
+  <ellipse cx="224" cy="237" rx="14" ry="20" fill="#653a24"/><ellipse cx="286" cy="237" rx="14" ry="20" fill="#653a24"/>
+  <circle cx="228" cy="231" r="5" fill="#fff"/><circle cx="290" cy="231" r="5" fill="#fff"/>
+  <path d="M239 270q17 17 34 0" fill="none" stroke="#a95d32" stroke-width="7" stroke-linecap="round"/>
+  <g filter="url(#shadow)" stroke-linejoin="round">
+    <path d="M96 342c58-22 111-14 160 21v91c-48-30-101-37-160-16v-96Z" fill="url(#pages)" stroke="#d6a749" stroke-width="8"/>
+    <path d="M416 342c-58-22-111-14-160 21v91c48-30 101-37 160-16v-96Z" fill="url(#pages)" stroke="#d6a749" stroke-width="8"/>
+    <path d="M256 363v90" stroke="#ba8031" stroke-width="7"/>
+    <path d="M122 369c37-10 72-7 105 5M122 391c36-9 70-5 105 9M389 369c-37-10-72-7-105 5M389 391c-36-9-70-5-105 9" fill="none" stroke="#e7d3a5" stroke-width="6" stroke-linecap="round"/>
+    <path d="M140 343q-16-12-5-26 11-11 25 3l10 17M372 343q16-12 5-26-11-11-25 3l-10 17" fill="#68b9c0" stroke="#2d8b96" stroke-width="7"/>
+  </g>
+  <path d="m127 165 8-16 8 16 16 8-16 8-8 16-8-16-16-8 16-8Zm258 12 6-12 6 12 12 6-12 6-6 12-6-12-12-6 12-6Z" fill="#fff" opacity=".95"/>
+</svg>
