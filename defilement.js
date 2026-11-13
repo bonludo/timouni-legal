@@ -98,10 +98,6 @@
       const steps = chapter.list.querySelectorAll(':scope > li, :scope > .feature-line');
       const count = Math.min(chapter.visual.querySelectorAll('[data-scene]').length, steps.length);
       if (!count) return;
-      if (stackedMq.matches) {
-        chapter.visual.querySelectorAll('[data-scene]').forEach(panel => panel.removeAttribute('aria-hidden'));
-        return;
-      }
       if (compact.matches) {
         const line = stackedMq.matches ? chapter.visual.getBoundingClientRect().bottom + 48 : innerHeight * 0.55;
         let found = 0;
